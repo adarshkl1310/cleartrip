@@ -1,0 +1,7 @@
+
+
+<%if following?(USER)%>
+<%button_to "unfollow", profiles_unfollow_path(id: user.id), method: :delate%>
+<%else%>
+<%button_to "follow", profiles_follow_path(id: user.id), method: :post%>
+<%end%>

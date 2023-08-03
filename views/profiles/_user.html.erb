@@ -1,0 +1,11 @@
+
+<%=user.email%>
+<%=render 'profiles/follower_count', user: user%>
+<div><%=user.followees.count%>following</div>
+
+<%if user == current_user%>
+<%=link_to "edit profiles", edit_user_registration_path%>
+
+<%elsif current_user%>
+<%=render 'profiles/follow_button', user: user%>
+<%end%>

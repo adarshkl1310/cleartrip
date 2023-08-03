@@ -1,0 +1,31 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<% if current_user%>
+<%= current_user.email%>
+<%= link_to "edit user", edit_user_registration_path%>
+<%= button_to "logout", destroy_user_session_path, method: :delete%>
+<%else%>
+<%=link_to "login",new_user_session_path%>
+<%=link_to "signup",new_user_registration_path%>
+<%end%>
+
+
+<%=form_for @page do |f|%>
+<%=f.label :name,'Name'%>
+<%=f.text_field :name%></br>
+<%=f.label :country,'Country'%>
+<%=f.text_field :country%></br>
+<%=f.label :massage,'message'%>
+<%=f.text_field :message%></br>
+<%=f.submit"Add"%>
+<%end%>
+
+
+
+<%@pages.each do |page|%>
+<%=page.name%>
+<%=page.country%>
+<%=page.message%>
+<%=link_to "view", page%>
+<%end%>
